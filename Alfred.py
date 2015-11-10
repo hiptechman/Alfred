@@ -53,6 +53,7 @@ class Alfred(object):
         self.pronounce(result)
         self.pronounce('Is that all?')
         query = self.mic()
+        print "You asked me %s" %query
         if re.search(r'No', query, re.IGNORECASE):
             self.wolframAlpha()
 
