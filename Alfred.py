@@ -149,8 +149,8 @@ class Alfred(object):
             except:
                 continue
             if date == scheduledEventDate:
-                if startTime >= scheduledEventStartTime:
-                    if endTime < scheduledEventEndTime:
+                if startTime <= scheduledEventEndTime:
+                    if endTime > scheduledEventStartTime:
                         self.pronounce('Unfortunately you have a conflicting event')
             else:
                 self.pronounce('You have no conflicting events at that time. Would you like to add an event?')
