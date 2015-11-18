@@ -49,12 +49,11 @@ class Alfred(object):
         """Sends requests to WolframAlpha"""
         self.pronounce('Sure, what would you like me to find out?')
         query = self.mic()
-        print "You asked me %s" %query
         result = self.wa.wolframAlphaQuery(query) # Get result from WolframAlpha's servers
         self.pronounce(result)
-        print "The anser is %s" %result
         self.pronounce('Is that all?')
         query = self.mic()
+        print "You asked me %s" %query
         if re.search(r'No', query, re.IGNORECASE):
             self.wolframAlpha()
 
