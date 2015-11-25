@@ -53,6 +53,7 @@ class Alfred(object):
         self.pronounce(result)
         self.pronounce('Is that all?')
         query = self.mic()
+        print "You asked me %s" %query
         if re.search(r'No', query, re.IGNORECASE):
             self.wolframAlpha()
 
@@ -149,8 +150,8 @@ class Alfred(object):
             except:
                 continue
             if date == scheduledEventDate:
-                if startTime >= scheduledEventStartTime:
-                    if endTime < scheduledEventEndTime:
+                if startTime <= scheduledEventEndTime:
+                    if endTime > scheduledEventStartTime:
                         self.pronounce('Unfortunately you have a conflicting event')
             else:
                 self.pronounce('You have no conflicting events at that time. Would you like to add an event?')
